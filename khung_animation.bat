@@ -26,8 +26,8 @@ for /F "Tokens=1-13 Delims={}" %%A in ("%Khung%") Do (
   )
   echo %Esc%[!Y!;!Xx!H!goc2!%Esc%[!Yy!;!Xx!H!goc4!
 
-  for /L %%b in (!X2!,-1,!X1!) do (
-   echo %Esc%[!Y!;%%bH!khung2!%Esc%[!Yy!;%%bH!khung2!
+  for /L %%a in (!X2!,-1,!X1!) do (
+   echo %Esc%[!Y!;%%aH!khung2!%Esc%[!Yy!;%%aH!khung2!
    For /L %%d in (1,1,%%M)Do Call :Delay 2> nul
   )
 
@@ -43,8 +43,8 @@ for /F "Tokens=1-13 Delims={}" %%A in ("%Khung%") Do (
   )
   echo %Esc%[!Y!;!X!H!goc1!%Esc%[!Yy!;!X!H!goc3!
 
-  for /L %%b in (!X1!,1,!X2!) do (
-   echo %Esc%[!Y!;%%bH!khung2!%Esc%[!Yy!;%%bH!khung2!
+  for /L %%a in (!X1!,1,!X2!) do (
+   echo %Esc%[!Y!;%%aH!khung2!%Esc%[!Yy!;%%aH!khung2!
    For /L %%d in (1,1,%%M)Do Call :Delay 2> nul
   )
 
@@ -60,8 +60,8 @@ for /F "Tokens=1-13 Delims={}" %%A in ("%Khung%") Do (
   )
   echo %Esc%[!Y!;!X!H!goc1!%Esc%[!Y!;!Xx!H!goc2!
 
-  for /L %%b in (!Y1!,1,!Y2!) do (
-   echo %Esc%[%%b;!X!H!khung1!%Esc%[%%b;!Xx!H!khung1!
+  for /L %%a in (!Y1!,1,!Y2!) do (
+   echo %Esc%[%%a;!X!H!khung1!%Esc%[%%a;!Xx!H!khung1!
    For /L %%d in (1,1,%%M)Do Call :Delay 2> nul
   )
 
@@ -77,8 +77,8 @@ for /F "Tokens=1-13 Delims={}" %%A in ("%Khung%") Do (
   )
   echo %Esc%[!Yy!;!X!H!goc3!%Esc%[!Yy!;!Xx!H!goc4!
 
-  for /L %%b in (!Y2!,-1,!Y1!) do (
-   echo %Esc%[%%b;!X!H!khung1!%Esc%[%%b;!Xx!H!khung1!
+  for /L %%a in (!Y2!,-1,!Y1!) do (
+   echo %Esc%[%%a;!X!H!khung1!%Esc%[%%a;!Xx!H!khung1!
    For /L %%d in (1,1,%%M)Do Call :Delay 2> nul
   )
 
