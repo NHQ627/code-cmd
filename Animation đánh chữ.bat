@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 for /F "delims=#" %%a in ('"prompt #$E# & for %%a in (1) do rem"') do set "Esc=%%a"
-echo %Esc%[?25l
+<nul set /p ="%Esc%[?25l"
 
 ((set "text=hello") & (set "vitrivb=1,1")) & call :vanban
 ((set "text=text") & (set "vitrivb=2,1")) & call :vanban
@@ -20,7 +20,7 @@ for /F "Tokens=1-2 Delims=," %%A in ("%vitrivb%") Do (
  for /L %%i in (0,1,800) do (
    set "char=!text:~%%i,1!"
    if "!char!"=="" goto :eof
-   echo !Esc![!Y!;!X!H!char!
+   <nul set /p ="!Esc![!Y!;!X!H!char!"
    set /a "X+=1"
    For /L %%d in (1 1 50)Do Call :Delay 2> nul
  )
