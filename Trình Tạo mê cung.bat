@@ -134,20 +134,21 @@ for /F "Tokens=1-2 Delims=," %%A in ("!list[%r%]!") do (
 set /a sodiemdadao+=1
 set /a hoanthanh=(%sodiemdadao%*100)/(%a%*%b%)
 
-<nul set /p ="%Esc%[5;1HDiện tích: %S%     %Esc%[6;1HSố điểm đã đào: %sodiemdadao%     %Esc%[7;1HDanh sách: %sothutu%     %Esc%[8;1HRamdom: %r%     %Esc%[10;1HVị trí chuột: %Chuot%     %Esc%[12;1HHoàn thành:%hoanthanh%%%%Esc%[1;1H"
+<nul set /p ="%Esc%[5;1HDiện tích: %S%     %Esc%[6;1HSố điểm đã đào: %sodiemdadao%     %Esc%[7;1HDanh sách: %sothutu%     %Esc%[8;1HRamdom: %r%     %Esc%[10;1HVị trí chuột: %Chuot%     %Esc%[12;1HHoàn thành: %hoanthanh%%%%Esc%[1;1H"
 
-if "%sothutu%"=="0" (
+if "%hoanthanh%"=="100" (
  goto :done
 ) else (
  goto :xulythongtin
-  :xoa
- for /L %%a in (%r%,1,%sothutu%) do (
-  set /a next=%%a+1
-  call set "list[%%a]=%%list[!next!]%%"
- )
- set /a sothutu-=1
- goto :eof
 )
+
+:xoa
+for /L %%a in (%r%,1,%sothutu%) do (
+ set /a next=%%a+1
+ call set "list[%%a]=%%list[!next!]%%"
+)
+set /a sothutu-=1
+goto :eof
 
 :done
 cls
